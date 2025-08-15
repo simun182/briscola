@@ -1,0 +1,1 @@
+g++ main.cpp deck.cpp cards.cpp GameState.cpp -o briscola -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
