@@ -2,7 +2,7 @@
 
 Card::Card () {}
 
-Card::Card (char type, int value) : type{type}, value{value} {
+Card::Card (CardType type, int value) : type{type}, value{value} {
 
 }
 
@@ -42,6 +42,29 @@ bool Card::operator==(const Card& card) const
     return type == card.type && value == card.value;
 }
 
-std::ostream& operator<<(std::ostream& os, const Card& card) {
+std::ostream& operator<<(std::ostream& os, const CardType& card_type)
+{
+    char type;
+    switch (card_type) {
+    case CardType::BASTONI:
+      type = 'B';
+      break;
+    case CardType::COPPE:
+      type = 'C';
+      break;
+    case CardType::DENARI:
+      type = 'D';
+      break;
+    case CardType::SPADE:
+      type = 'S';
+      break;
+    default:
+      throw std::runtime_error{"unknown card type"};
+    }
+    return os << type;
+}
+
+std::ostream& operator<<(std::ostream& os, const Card& card)
+{
     return os << card.type << card.value;
 }

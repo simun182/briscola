@@ -7,7 +7,7 @@ Deck::Deck ()
 {
     Clear();
     
-    for (const char type : {'B', 'C', 'D', 'S'})
+    for (const CardType type : {CardType::BASTONI, CardType::COPPE, CardType::DENARI, CardType::SPADE})
     {
         int value[] = {1, 2, 3, 4, 5, 6, 7, 11, 12, 13};
         for (int v : value)
